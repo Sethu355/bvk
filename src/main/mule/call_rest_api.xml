@@ -12,6 +12,6 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	</http:request-config>
 	<flow name="call_rest_apiFlow" doc:id="072ce7db-fa84-4406-b687-57c2d323b761" >
 		<http:listener doc:name="Listener" doc:id="cd05eb7e-4f39-4357-9017-d3307b72ef9a" config-ref="HTTP_Listener_config" path="/rest"/>
-		<http:request method="GET" doc:name="Request" doc:id="e88357ad-c720-4f95-9696-015aa61b4930" config-ref="HTTP_Request_configuration" path="api/users?page=2"/>
+		<http:request method="GET" doc:name="Request for get method" doc:id="e88357ad-c720-4f95-9696-015aa61b4930" config-ref="HTTP_Request_configuration" path="api/users?page=2"/>
 	</flow>
 </mule>
