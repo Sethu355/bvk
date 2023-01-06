@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="b14df379-525b-4b22-a0b9-fad99823f004" >
+		<http:listener-connection host="0.0.0.0" port="8089" />
+	</http:listener-config>
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="74e190e1-2c8a-43ff-bc91-f41a671f8ff2" basePath="api/users">
+		<http:request-connection host="reqres.in/" protocol="HTTPS"/>
+	</http:request-config>
+	<flow name="call_rest_apiFlow" doc:id="072ce7db-fa84-4406-b687-57c2d323b761" >
+		<http:listener doc:name="Listener" doc:id="cd05eb7e-4f39-4357-9017-d3307b72ef9a" config-ref="HTTP_Listener_config" path="/rest"/>
+		<http:request method="GET" doc:name="Request" doc:id="e88357ad-c720-4f95-9696-015aa61b4930" config-ref="HTTP_Request_configuration" path="api/users?page=2"/>
+	</flow>
+</mule>
